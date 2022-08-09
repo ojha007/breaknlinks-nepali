@@ -47,7 +47,7 @@
             </div>
         </div>
     </section>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                 <div class="adv-widebanner">
@@ -57,7 +57,7 @@
         </div>
     </div>
     <nav class="navbar navbar-expand-lg navbar--primary">
-        <div class="container-fluid align-items-start">
+        <div class="container align-items-start">
             <div class="navbar-brand">
                 <a href="#" class="brand-logo"><img src="{{asset('frontend/images/bl-logo.png')}}"/> </a>
             </div>
@@ -293,7 +293,7 @@
 <!--ended hot carousel news-->
 
 <!--BL Top post news-->
-<section class="container-fluid">
+<section class="container">
     <div class="row">
         <section class="news-row">
             <div class="bl-newsHeader">
@@ -387,7 +387,7 @@
 
 <!--BL Special news post-->
 
-<section class="container-fluid blSpecial-container">
+<section class="container blSpecial-container">
     <div class="row">
         <div class="news-row">
             <div class="bl-newsHeader">
@@ -457,7 +457,7 @@
 <!--ended BL Special news post-->
 
 <!--start general news and links news section-->
-<section class="container-fluid">
+<section class="container">
     <div class="news-row">
         <div class="row">
             <div class="col-sm-12 col-md-8 col-lg-9 col-xl-9 col-xxl-9">
@@ -701,7 +701,7 @@
 <!--ended general news and links news section-->
 
 <!--start trending and brand story news section-->
-<div class="container-fluid">
+<div class="container">
     <div class="news-row">
         <div class="row">
             <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
@@ -844,7 +844,7 @@
 
 
 <!--start economy and analysis news block-->
-<section class="container-fluid">
+<section class="container">
     <div class="news-row">
         <div class="row">
             <div class="col-sm-12 col-md-8 col-lg-9 col-xl-9 col-xxl-9">
@@ -1074,7 +1074,7 @@
 <!--ended economy and analysis news block-->
 
 <!--start Entertainment and Blog news block-->
-<section class="container-fluid">
+<section class="container">
     <div class="news-row">
         <div class="row">
             <div class="col-sm-12 col-md-8 col-lg-9 col-xl-9 col-xxl-9">
@@ -1247,7 +1247,7 @@
 <!--ended Entertainment and Blog news block-->
 
 <!--start Video News block-->
-<section class="container-fluid">
+<section class="container">
     <div class="news-row">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
