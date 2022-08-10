@@ -11,7 +11,7 @@
                 <div class="card-header">
                     <h3 class="card-title">All news are listed here.</h3>
                     <div class="card-tools pull-right">
-                        <a href="" class="btn btn-primary">
+                        <a href="{{route('admin.news.create')}}" class="btn btn-primary">
                             <i class="fa fa-plus"></i>
                             Add
                         </a>
@@ -19,7 +19,6 @@
                 </div>
                 <div class="card-body"></div>
                 <div class="card-footer">
-
                 </div>
             </div>
         </div>

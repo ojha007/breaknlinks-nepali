@@ -5,7 +5,7 @@
     Add News
 @endsection
 @section('content')
-    {!! Form::open() !!}
+    {!! Form::open(['route'=>'admin.news.store','files'=>'true']) !!}
     <div class="row">
         <div class="col-md-8">
             <div class="card card-default">

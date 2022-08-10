@@ -14,3 +14,14 @@ if (!function_exists('isMenuOpen')) {
         return request()->routeIs(...$route) ? 'menu-open' : '';
     }
 }
+
+
+if (!function_exists('formControl')) {
+    function formControl($case, $errors): string
+    {
+        if ($errors && $case)
+            if ($errors->has($case))
+                return 'form-control is-invalid';
+        return 'form-control';
+    }
+}

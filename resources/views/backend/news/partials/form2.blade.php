@@ -1,10 +1,12 @@
 <div class="form-group">
     {!! Form::label('publish_date') !!}
-    {!! Form::date('publish_date',null,['class'=>'form-control']) !!}
+    {!! Form::dateTimeLocal('publish_date',null,['class'=>formControl('publish_date',$errors)]) !!}
+    @error('publish_date') <span class="error invalid-feedback">{{ $message }}</span> @enderror
 </div>
 <div class="form-group">
     {!! Form::label('category_id','Select Category') !!}
-    {!! Form::select('is_anchor',[0=>'होइन',1=>'हो'],null,['class'=>'form-control select2','placeholder'=>'-----Select Category----']) !!}
+    {!! Form::select('category_id',$categories,null,['class'=>formControl('category_id',$errors).' select2','placeholder'=>'-----Select Category----']) !!}
+    @error('category_id') <span class="error invalid-feedback">{{ $message }}</span> @enderror
 </div>
 
 
@@ -14,7 +16,8 @@
 </div>
 <div class="form-group">
     {!! Form::label('image_description') !!}
-    {!! Form::text('image_description',null,['class'=>'form-control']) !!}
+    {!! Form::text('image_description',null,['class'=>formControl('image_description',$errors)]) !!}
+    @error('image_description') <span class="error invalid-feedback">{{ $message }}</span> @enderror
 </div>
 <div class="form-group">
     <div class="custom-control custom-switch">

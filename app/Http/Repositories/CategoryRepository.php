@@ -15,4 +15,29 @@ class CategoryRepository extends Repository
 
         $this->model = $model;
     }
+
+    public function selectParentOnly()
+    {
+        return $this->getModel()
+            ->whereNull('parent_id')
+            ->get()
+            ->flatMap(function ($category) {
+                return [
+                    $category->id => $category->title
+                ];
+            });
+
+    }
+
+    public function selectAll()
+    {
+        return $this->getModel()
+            ->get()
+            ->flatMap(function ($category) {
+                return [
+                    $category->id => $category->title
+                ];
+            });
+
+    }
 }
