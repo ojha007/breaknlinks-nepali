@@ -69,6 +69,7 @@ class CategoryController extends Controller
                 ->route($this->baseRoute . 'index')
                 ->with('success', 'Category added successfully');
         } catch (Throwable $exception) {
+            dd($exception);
             Log::error($exception->getMessage() . '--' . $exception->getTraceAsString());
             return redirect()
                 ->back()

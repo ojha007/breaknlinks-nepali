@@ -12,12 +12,12 @@
     <div class="row">
         <div class="col-md-6">
             {!! Form::label('reporter_id','Select Reporter') !!}
-            {!! Form::select('reporter_id',[0=>'होइन',1=>'हो'],null,['class'=>formControl('reporter_id',$errors),' select2','placeholder'=>'----Select Reporter----']) !!}
+            {!! Form::select('reporter_id',$reporters,null,['class'=>formControl('reporter_id',$errors),' select2','placeholder'=>'----Select Reporter----']) !!}
             @error('reporter_id') <span class="error invalid-feedback">{{ $message }}</span> @enderror
         </div>
         <div class="col-md-6">
             {!! Form::label('guest_id','Select Guest') !!}
-            {!! Form::select('guest_id',[0=>'होइन',1=>'हो'],null,['class'=>formControl('guest_id',$errors).' select2','placeholder'=>'----Select Guest----']) !!}
+            {!! Form::select('guest_id',$guests,null,['class'=>formControl('guest_id',$errors).' select2','placeholder'=>'----Select Guest----']) !!}
             @error('guest_id') <span class="error invalid-feedback">{{ $message }}</span> @enderror
         </div>
     </div>

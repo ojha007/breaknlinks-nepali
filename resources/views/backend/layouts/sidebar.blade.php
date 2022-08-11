@@ -37,14 +37,20 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{route('admin.news.index')}}" class="nav-link {{isActive('admin.news.index')}}">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fa fa-list nav-icon"></i>
                                 <p>List</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{route('admin.news.create')}}" class="nav-link {{isActive('admin.news.create')}}">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fa fa-plus nav-icon"></i>
                                 <p>Add</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin.news.archive')}}" class="nav-link {{isActive('admin.news.archive')}}">
+                                <i class="fa fa-archive nav-icon"></i>
+                                <p>Archive</p>
                             </a>
                         </li>
                     </ul>

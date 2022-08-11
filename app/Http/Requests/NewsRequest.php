@@ -8,15 +8,16 @@ class NewsRequest extends FormRequest
 {
     public function rules(): array
     {
+//        dd($this->request->all());
         return [
             'title' => 'required',
             'sub_title' => 'nullable|string|max:255',
             'date_line' => 'nullable|string',
-            'reporter_id' => 'nullable|exists:authors,id,type,reporter',
+//            'reporter_id' => 'nullable|exists:authors,id,type,reporter',
             'guest_id' => 'nullable|exists:authors,id,type,guest',
             'description' => 'required',
             'category_id' => 'required|exists:categories,id',
-            'short_description' => 'required|string',
+            'sub_description' => 'required|string',
             'publish_date' => 'required|date|date_format:Y-m-d\TH:i',
             'is_anchor' => 'required|boolean',
             'is_special' => 'required|boolean',

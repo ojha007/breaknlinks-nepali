@@ -13,6 +13,7 @@
 <div class="form-group">
     {!! Form::label('banner_image') !!}
     {!! Form::file('image',['accept'=>'image/png,image/jpg,image/jpeg','image/webp']) !!}
+    @error('image') <span class="error invalid-feedback">{{ $message }}</span> @enderror
 </div>
 <div class="form-group">
     {!! Form::label('image_description') !!}
@@ -21,13 +22,17 @@
 </div>
 <div class="form-group">
     <div class="custom-control custom-switch">
-        <input class="custom-control-input" type="checkbox" id="is_anchor" name="is_anchor" value="1">
+        <input type="hidden" name="is_anchor" value="0">
+        {!! Form::checkbox('is_anchor','1',null,['class'=>'custom-control-input','id'=>'is_anchor']) !!}
         <label for="is_anchor" class="custom-control-label">Is Anchor News</label>
+        @error('is_anchor') <span class="error invalid-feedback">{{ $message }}</span> @enderror
     </div>
 </div>
 <div class="form-group">
     <div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="is_special" value="1">
+        <input type="hidden" name="is_special" value="0">
+        {!! Form::checkbox('is_special','1',null,['class'=>'custom-control-input','id'=>'is_special']) !!}
         <label class="custom-control-label" for="is_special">Is Special News</label>
+        @error('is_special') <span class="error invalid-feedback">{{ $message }}</span> @enderror
     </div>
 </div>

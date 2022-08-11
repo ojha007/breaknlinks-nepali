@@ -19,6 +19,12 @@ abstract class Repository implements RepositoryInterface
         return $this->model->all();
     }
 
+
+    public function restore(int $id)
+    {
+        return $this->model->withTrashed()->find($id)->restore();
+    }
+
     public function create(array $attributes)
     {
         return $this->model->create($attributes);

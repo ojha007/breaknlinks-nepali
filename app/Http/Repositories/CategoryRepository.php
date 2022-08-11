@@ -21,7 +21,7 @@ class CategoryRepository extends Repository
         return $this->getModel()
             ->whereNull('parent_id')
             ->get()
-            ->flatMap(function ($category) {
+            ->mapWithKeys(function ($category) {
                 return [
                     $category->id => $category->title
                 ];
@@ -33,7 +33,7 @@ class CategoryRepository extends Repository
     {
         return $this->getModel()
             ->get()
-            ->flatMap(function ($category) {
+            ->mapWithKeys(function ($category) {
                 return [
                     $category->id => $category->title
                 ];
