@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Repositories\AuthorRepository;
 use App\Http\Repositories\CategoryRepository;
 use App\Http\Repositories\NewsRepository;
 use App\Http\Requests\NewsRequest;
@@ -29,15 +30,21 @@ class NewsController extends Controller
      * @var CategoryRepository
      */
     private $categoryRepository;
+    /**
+     * @var AuthorRepository
+     */
+    private $authorRepository;
 
     /**
      * @param NewsRepository $repository
      * @param CategoryRepository $categoryRepository
+     * @param AuthorRepository $authorRepository
      */
-    public function __construct(NewsRepository $repository, CategoryRepository $categoryRepository)
+    public function __construct(NewsRepository $repository, CategoryRepository $categoryRepository,AuthorRepository $authorRepository)
     {
         $this->repository = $repository;
         $this->categoryRepository = $categoryRepository;
+        $this->authorRepository = $authorRepository;
     }
 
     public function index(Request $request)
@@ -52,8 +59,8 @@ class NewsController extends Controller
     public function create()
     {
         $categories = $this->categoryRepository->selectAll();
-        $guests = [];
-        $reporters = [];
+        $guests = $this->authorRepository->selectAll('guest');
+        $reporters = $this->authorRepository->selectAll('reporter');
         return view($this->viewPath . 'create', compact('categories', 'guests', 'reporters'));
     }
 

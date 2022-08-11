@@ -49,7 +49,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{route('admin.news.archive')}}" class="nav-link {{isActive('admin.news.archive')}}">
-                                <i class="fa fa-archive nav-icon"></i>
+                                <i class="fa fa-archive  nav-icon"></i>
                                 <p>Archive</p>
                             </a>
                         </li>
@@ -58,8 +58,16 @@
                 <li class="nav-item">
                     <a href="{{route('admin.categories.index')}}"
                        class="nav-link {{isActive('admin.categories','admin.categories.*')}}">
-                        <i class="far fa-list-alt nav-icon"></i>
+                        <i class="fa fa-list-alt nav-icon"></i>
                         <p>Category</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{route('admin.authors.index')}}"
+                       class="nav-link {{isActive('admin.authors','admin.authors.*')}}">
+                        <i class="fa fa-users nav-icon"></i>
+                        <p>Author</p>
                     </a>
                 </li>
             </ul>
