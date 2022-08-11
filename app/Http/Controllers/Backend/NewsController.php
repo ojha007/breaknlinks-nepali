@@ -40,7 +40,7 @@ class NewsController extends Controller
      * @param CategoryRepository $categoryRepository
      * @param AuthorRepository $authorRepository
      */
-    public function __construct(NewsRepository $repository, CategoryRepository $categoryRepository,AuthorRepository $authorRepository)
+    public function __construct(NewsRepository $repository, CategoryRepository $categoryRepository, AuthorRepository $authorRepository)
     {
         $this->repository = $repository;
         $this->categoryRepository = $categoryRepository;

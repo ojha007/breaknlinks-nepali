@@ -5,6 +5,7 @@ namespace App\Http\Repositories;
 use App\Interfaces\Repository;
 use App\Models\News;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
 class NewsRepository extends Repository
@@ -34,5 +35,34 @@ class NewsRepository extends Repository
             })
             ->orderByDesc('publish_date')
             ->paginate($attributes['paginate'] ?? 30);
+    }
+
+    public function getNewsByOrder($order, $limit = 5): Collection
+    {
+        return DB::table('news as ne')
+            ->select('ne.id', 'ne.title', 'ne.image', 'date_line', 'a.name as author')
+            ->join('authors as a', 'a.id', '=', 'ne.guest_id')
+            ->join('categories as c', function ($q) use ($order) {
+                $q->on('ne.category_id', '=', 'c.id')
+                    ->where('c.order', '=', $order);
+            })
+            ->where('publish_date', '<', now())
+            ->whereNull('deleted_at')
+            ->orderByDesc('publish_date')
+            ->limit($limit)
+            ->get();
+    }
+
+    public function getAnchorNews($limit = 5): Collection
+    {
+        return DB::table('news as ne')
+            ->select('ne.id', 'ne.title', 'ne.image', 'date_line', 'a.name as author', 'sub_description', 'date_line')
+            ->join('authors as a', 'a.id', '=', 'ne.guest_id')
+            ->where('is_anchor', '=', '1')
+            ->whereNull('deleted_at')
+            ->orderByDesc('publish_date')
+            ->limit($limit)
+            ->get();
+
     }
 }

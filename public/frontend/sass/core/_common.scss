@@ -23,14 +23,14 @@
   @include fw;
 }
 
-strong,
-.strong {
-  font-weight: bold;
-
-  & > {
-    font-weight: bold;
-  }
-}
+//strong,
+//.strong {
+//  font-weight: bold;
+//
+//  & > {
+//    font-weight: bold;
+//  }
+//}
 
 .cmn {
   &-fw {

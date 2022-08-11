@@ -21,7 +21,7 @@ class News extends Model
         'is_anchor',
         'date_line',
         'description',
-        'short_description',
+        'sub_description',
         'view_count',
         'external_url',
         'video_url',
