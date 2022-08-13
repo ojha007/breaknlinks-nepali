@@ -25,7 +25,7 @@ if (!function_exists('formControl')) {
         return 'form-control';
     }
 }
-function getFirstItem($collection): string
+function getFirstItem($collection)
 {
     return $collection->take(1)->first() ?? '';
 }
