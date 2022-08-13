@@ -19,8 +19,9 @@
                         <div class="post_content">
                             <h5 class="post_title"><a href="#">{{getFirstItem($order2News)->title??''}} </a></h5>
                             <p>{{\Illuminate\Support\Str::limit(getFirstItem($order2News)->description??'')}}</p>
+                            @if(getFirstItem($order2News))
                             <p class="post_source">{{getFirstItem($order2News)->author??''}} {{getFirstItem($order2News)->date_line ? '-' .getFirstItem($order2News)->date_line  :''}}</p>
-
+                            @endif
                         </div>
                     </div>
 

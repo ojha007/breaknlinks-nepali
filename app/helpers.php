@@ -25,11 +25,12 @@ if (!function_exists('formControl')) {
         return 'form-control';
     }
 }
-function getFirstItem($collection)
+function getFirstItem($collection): string
 {
-    return $collection->take(1)->first();
+    return $collection->take(1)->first() ?? '';
 }
-function skipAndTake($collection,$skip,$take)
+
+function skipAndTake($collection, $skip, $take)
 {
     return $collection->skip($skip)->take($take);
 }

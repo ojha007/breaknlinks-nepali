@@ -40,9 +40,9 @@ class NewsRepository extends Repository
 
     public function getCacheNewsByOrder($order, $limit = 10,$cache_name): Collection
     {
-        return Cache::remember('_' . $cache_name, 4800, function () use ($order, $limit) {
+//        return Cache::remember('_' . $cache_name, 4800, function () use ($order, $limit) {
             return $this->getNewsByOrder($order, $limit);
-        });
+//        });
 
     }
 

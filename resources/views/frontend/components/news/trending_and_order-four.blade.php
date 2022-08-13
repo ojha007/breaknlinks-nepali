@@ -67,8 +67,9 @@
                         <div class="post_content">
                             <h5 class="post_title"><a href="#">{{getFirstItem($order4News)->title??''}} </a></h5>
                             <p>{{\Illuminate\Support\Str::limit(getFirstItem($order4News)->description??'',255)}}</p>
-                            <p class="post_source">{{getFirstItem($order4News)->author??''}} {{getFirstItem($order4News)->date_line ? '-' .getFirstItem($order4News)->date_line  :''}}</p>
-
+                            @if(getFirstItem($order4News))
+                                <p class="post_source">{{getFirstItem($order4News)->author??''}} {{getFirstItem($order4News)->date_line ? '-' .getFirstItem($order4News)->date_line  :''}}</p>
+                            @endif
                         </div>
                     </div>
                     <!--ended repeatable item with condition-->
