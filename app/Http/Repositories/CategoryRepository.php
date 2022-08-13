@@ -23,7 +23,7 @@ class CategoryRepository extends Repository
             ->get()
             ->mapWithKeys(function ($category) {
                 return [
-                    $category->id => $category->title
+                    $category->slug => $category->title
                 ];
             });
 
@@ -31,13 +31,23 @@ class CategoryRepository extends Repository
 
     public function selectAll()
     {
-        return $this->getModel()
+        return $this->getModel()->orderBy('order', 'ASC')
             ->get()
             ->mapWithKeys(function ($category) {
                 return [
                     $category->id => $category->title
                 ];
             });
+    }
 
+    public function getByOrder()
+    {
+        return $this->getModel()->orderBy('order', 'ASC')
+            ->get()
+            ->mapWithKeys(function ($category) {
+                return [
+                    $category->order => $category->title
+                ];
+            });
     }
 }

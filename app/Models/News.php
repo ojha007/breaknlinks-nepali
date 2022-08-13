@@ -17,6 +17,7 @@ class News extends Model
         'title',
         'sub_title',
         'reporter_id',
+        'guest_id',
         'slug',
         'is_anchor',
         'date_line',

@@ -8,7 +8,6 @@ class NewsRequest extends FormRequest
 {
     public function rules(): array
     {
-//        dd($this->request->all());
         return [
             'title' => 'required',
             'sub_title' => 'nullable|string|max:255',

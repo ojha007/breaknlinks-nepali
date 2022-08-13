@@ -11,6 +11,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 use Throwable;
 
 class CategoryController extends Controller
@@ -64,6 +65,7 @@ class CategoryController extends Controller
     {
         try {
             $attributes = $request->validated();
+            $attributes['slug'] = Str::slug($attributes['title']);
             $this->repository->create($attributes);
             return redirect()
                 ->route($this->baseRoute . 'index')

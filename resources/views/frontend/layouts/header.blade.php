@@ -58,36 +58,13 @@
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="#"><i
                                 class="fas fa-house-chimney"></i> </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">BL Special</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Science and Tech</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Travel</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Economy</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">News</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Break</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Entertainment</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Sports</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Focus</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">South Asia</a>
-                    </li>
+                    @forelse($categories->take(10) as $key=> $category)
+                        <li class="nav-item"><a class="nav-link"
+                            >{{$category}}</a>
+                        </li>
+                    @empty
+                    @endforelse
+
                 </ul>
                 <!--                <form class="d-flex" role="search">-->
                 <!--                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->

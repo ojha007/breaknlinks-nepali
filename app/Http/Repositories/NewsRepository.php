@@ -6,6 +6,7 @@ use App\Interfaces\Repository;
 use App\Models\News;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
 class NewsRepository extends Repository
@@ -37,21 +38,30 @@ class NewsRepository extends Repository
             ->paginate($attributes['paginate'] ?? 30);
     }
 
-    public function getNewsByOrder($order, $limit = 5): Collection
+    public function getCacheNewsByOrder($order, $limit = 10,$cache_name): Collection
+    {
+        return Cache::remember('_' . $cache_name, 4800, function () use ($order, $limit) {
+            return $this->getNewsByOrder($order, $limit);
+        });
+
+    }
+
+    public function getNewsByOrder($order, $limit = 10): Collection
     {
         return DB::table('news as ne')
-            ->select('ne.id', 'ne.title', 'ne.image', 'date_line', 'a.name as author')
-            ->join('authors as a', 'a.id', '=', 'ne.guest_id')
-            ->join('categories as c', function ($q) use ($order) {
-                $q->on('ne.category_id', '=', 'c.id')
-                    ->where('c.order', '=', $order);
-            })
-            ->where('publish_date', '<', now())
+            ->select('ne.id', 'ne.title', 'ne.image', 'date_line', 'ne.description')
+//            ->join('authors as a', 'a.id', '=', 'ne.guest_id')
+//            ->join('categories as c', function ($q) use ($order) {
+//                $q->on('ne.category_id', '=', 'c.id')
+//                    ->where('c.order', '=', $order);
+//            })
+//            ->where('publish_date', '<', now())
             ->whereNull('deleted_at')
             ->orderByDesc('publish_date')
             ->limit($limit)
             ->get();
     }
+
 
     public function getAnchorNews($limit = 5): Collection
     {

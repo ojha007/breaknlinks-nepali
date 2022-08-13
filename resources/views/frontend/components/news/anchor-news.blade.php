@@ -33,7 +33,7 @@
                                     <a href="#"{{$news->title}}</a>
                                 </h5>
                                 <p>{{$news->sub_description}}</p>
-                                <p class="post_source">{{$news->author}} {{$news->date_line ? '-' .$news->date_line  :''}}</p>
+                                <p class="post_source">{{$news->author??''}} {{$news->date_line ? '-' .$news->date_line  :''}}</p>
                             </div>
                         </div>
                     @endif
