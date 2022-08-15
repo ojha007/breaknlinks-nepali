@@ -12,7 +12,16 @@
 
 <div class="form-group">
     {!! Form::label('banner_image') !!}
-    {!! Form::file('image',['accept'=>'image/png,image/jpg,image/jpeg','image/webp']) !!}
+    <div class="input-group">
+   <span class="input-group-btn">
+     <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+       <i class="fa fa-picture-o"></i> Choose
+     </a>
+   </span>
+        <input id="thumbnail" class="form-control" type="text" name="image">
+    </div>
+    <img id="holder" style="margin-top:15px;max-height:100px;" alt="">
+    {{--    {!! Form::file('image',['accept'=>'image/png,image/jpg,image/jpeg','image/webp']) !!}--}}
     @error('image') <span class="error invalid-feedback">{{ $message }}</span> @enderror
 </div>
 <div class="form-group">
@@ -36,3 +45,17 @@
         @error('is_special') <span class="error invalid-feedback">{{ $message }}</span> @enderror
     </div>
 </div>
+@push('scripts')
+    <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+    <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
+    <script>
+        var options = {
+            filebrowserImageBrowseUrl: '/filemanager?type=Images',
+            filebrowserImageUploadUrl: '/filemanager/upload?type=Images&_token=',
+            filebrowserBrowseUrl: '/filemanager?type=Files',
+            filebrowserUploadUrl: '/filemanager/upload?type=Files&_token='
+        };
+        CKEDITOR.replace('description', options);
+        $('#lfm').filemanager('image');
+    </script>
+@endpush

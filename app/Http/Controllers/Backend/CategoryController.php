@@ -78,4 +78,20 @@ class CategoryController extends Controller
                 ->with('failed', 'Whoops! Unable to add Category.Try again!');
         }
     }
+
+    public function destroy($id): RedirectResponse
+    {
+        try {
+            $this->repository->delete($id);
+            return redirect()
+                ->route($this->baseRoute . 'index')
+                ->with('success', 'Category deleted successfully');
+        } catch (Throwable $exception) {
+            Log::error($exception->getMessage() . '--' . $exception->getTraceAsString());
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with('failed', 'Whoops! Unable to delete Category on the moment.Try again!');
+        }
+    }
 }
