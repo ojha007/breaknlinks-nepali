@@ -30,16 +30,18 @@ class HomeController extends Controller
     public function index()
     {
         $categories = $this->categoryRepository->getByOrder();
-        $order1News = $this->newsRepository->getCacheNewsByOrder(1,10,'first_position_news');
-        $order2News = $this->newsRepository->getCacheNewsByOrder(2,10,'second_position_news');
-        $order3News = $this->newsRepository->getCacheNewsByOrder(3,10,'third_position_news');
-        $order4News = $this->newsRepository->getCacheNewsByOrder(4,10,'fourth_position_news');
-        $order5News = $this->newsRepository->getCacheNewsByOrder(5,10,'fifth_position_news');
-        $order6News = $this->newsRepository->getCacheNewsByOrder(6,10,'sixth_position_news');
-        $order7News = $this->newsRepository->getCacheNewsByOrder(7,10,'seventh_position_news');
-        $order8News = $this->newsRepository->getCacheNewsByOrder(8,10,'eighth_position_news');
+        $order1News = $this->newsRepository->getCacheNewsByOrder(1, 10);
+        $order2News = $this->newsRepository->getCacheNewsByOrder(2, 10);
+        $order3News = $this->newsRepository->getCacheNewsByOrder(3, 10);
+        $order4News = $this->newsRepository->getCacheNewsByOrder(4, 10);
+        $order5News = $this->newsRepository->getCacheNewsByOrder(5, 10);
+        $order6News = $this->newsRepository->getCacheNewsByOrder(6, 10);
+        $order7News = $this->newsRepository->getCacheNewsByOrder(7, 10);
+        $order8News = $this->newsRepository->getCacheNewsByOrder(8, 10);
         $anchorNews = $this->newsRepository->getAnchorNews();
+        $trendingNews = $this->newsRepository->getTrendingNews(5);
         return view('frontend.index', compact('order1News',
+            'trendingNews',
             'anchorNews',
             'categories',
             'order2News',

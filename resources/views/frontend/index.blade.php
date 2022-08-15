@@ -14,16 +14,51 @@
     <!--ended BL Special news post-->
 
     <!--start general news and links news section-->
-    @include('frontend.components.news.order-two_and_three')
+    <section class="container">
+        <div class="news-row">
+            <div class="row">
+                <div class="col-sm-12 col-md-8 col-lg-9 col-xl-9 col-xxl-9">
+                    @include('frontend.components.news.order-two')
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+                    @include('frontend.components.news.order-three')
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!--ended general news and links news section-->
 
     <!--start trending and brand story news section-->
-    @include('frontend.components.news.trending_and_order-four')
+    <div class="container">
+        <div class="news-row">
+            <div class="row">
+                <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+                    @include('frontend.components.news.trending-news')
+                </div>
+                <div class="col-sm-12 col-md-8 col-lg-9 col-xl-9 col-xxl-9">
+                    @include('frontend.components.news.order-four')
+                </div>
+
+            </div>
+        </div>
+    </div>
 
     <!--ended trending and brand story news section-->
 
     <!--start economy and analysis news block-->
-    @include('frontend.components.news.order-five_and_six')
+    <section class="container">
+        <div class="news-row">
+            <div class="row">
+                <div class="col-sm-12 col-md-8 col-lg-9 col-xl-9 col-xxl-9">
+                    @include('frontend.components.news.order-five')
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3 col-xxl-3">
+                    @include('frontend.components.news.order-six')
+                </div>
+            </div>
+        </div>
+    </section>
     <!--ended economy and analysis news block-->
 
     <!--start Entertainment and Blog news block-->

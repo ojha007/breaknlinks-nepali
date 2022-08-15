@@ -38,9 +38,9 @@ class NewsRepository extends Repository
             ->paginate($attributes['paginate'] ?? 30);
     }
 
-    public function getCacheNewsByOrder($order, $limit = 10,$cache_name): Collection
+    public function getCacheNewsByOrder($order, $limit = 10): Collection
     {
-        return Cache::remember('_' . $cache_name, 4800, function () use ($order, $limit) {
+        return Cache::remember('_news_' . $order, 4800, function () use ($order, $limit) {
             return $this->getNewsByOrder($order, $limit);
         });
 
@@ -49,13 +49,13 @@ class NewsRepository extends Repository
     public function getNewsByOrder($order, $limit = 10): Collection
     {
         return DB::table('news as ne')
-            ->select('ne.id', 'ne.title', 'ne.image', 'date_line', 'ne.description')
-//            ->join('authors as a', 'a.id', '=', 'ne.guest_id')
-//            ->join('categories as c', function ($q) use ($order) {
-//                $q->on('ne.category_id', '=', 'c.id')
-//                    ->where('c.order', '=', $order);
-//            })
-//            ->where('publish_date', '<', now())
+            ->select('ne.id', 'ne.title', 'ne.image', 'date_line', 'ne.description', 'a.name as author')
+            ->join('authors as a', 'a.id', '=', 'ne.guest_id')
+            ->join('categories as c', function ($q) use ($order) {
+                $q->on('ne.category_id', '=', 'c.id')
+                    ->where('c.order', '=', $order);
+            })
+//            ->whereTime('publish_date', '<', now())
             ->whereNull('deleted_at')
             ->orderByDesc('publish_date')
             ->limit($limit)
@@ -73,6 +73,17 @@ class NewsRepository extends Repository
             ->orderByDesc('publish_date')
             ->limit($limit)
             ->get();
+    }
 
+    public function getTrendingNews(int $limit): Collection
+    {
+        return DB::table('news as ne')
+            ->select('ne.id', 'ne.title', 'ne.image', 'date_line', 'a.name as author', 'c.title as category')
+            ->join('authors as a', 'a.id', '=', 'ne.guest_id')
+            ->join('categories as c', 'ne.category_id', '=', 'c.id')
+            ->whereNull('deleted_at')
+            ->orderByDesc('view_count')
+            ->limit($limit)
+            ->get();
     }
 }
