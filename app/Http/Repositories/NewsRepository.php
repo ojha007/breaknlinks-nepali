@@ -50,7 +50,7 @@ class NewsRepository extends Repository
     {
         return DB::table('news as ne')
             ->select('ne.id', 'ne.title', 'ne.image', 'date_line', 'ne.description', 'a.name as author')
-            ->join('authors as a', 'a.id', '=', 'ne.guest_id')
+            ->leftJoin('authors as a', 'a.id', '=', 'ne.guest_id')
             ->join('categories as c', function ($q) use ($order) {
                 $q->on('ne.category_id', '=', 'c.id')
                     ->where('c.order', '=', $order);
@@ -67,7 +67,7 @@ class NewsRepository extends Repository
     {
         return DB::table('news as ne')
             ->select('ne.id', 'ne.title', 'ne.image', 'date_line', 'a.name as author', 'sub_description', 'date_line')
-            ->join('authors as a', 'a.id', '=', 'ne.guest_id')
+            ->leftJoin('authors as a', 'a.id', '=', 'ne.guest_id')
             ->where('is_anchor', '=', '1')
             ->whereNull('deleted_at')
             ->orderByDesc('publish_date')
@@ -79,7 +79,7 @@ class NewsRepository extends Repository
     {
         return DB::table('news as ne')
             ->select('ne.id', 'ne.title', 'ne.image', 'date_line', 'a.name as author', 'c.title as category')
-            ->join('authors as a', 'a.id', '=', 'ne.guest_id')
+            ->leftJoin('authors as a', 'a.id', '=', 'ne.guest_id')
             ->join('categories as c', 'ne.category_id', '=', 'c.id')
             ->whereNull('deleted_at')
             ->orderByDesc('view_count')
