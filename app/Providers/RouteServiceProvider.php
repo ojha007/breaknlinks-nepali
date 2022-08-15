@@ -26,10 +26,11 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        parent::boot();
+//        parent::boot();
         // Add following lines to force laravel to use APP_URL as root url for the app.
-        $strBaseURL = $this->app['url'];
-        $strBaseURL->forceRootUrl(config('app.url'));
+//        $strBaseURL = $this->app['url'];
+//        $strBaseURL->force
+//        $strBaseURL->forceRootUrl(config('app.url'));
 
         $this->configureRateLimiting();
 
