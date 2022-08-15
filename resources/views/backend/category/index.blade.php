@@ -28,10 +28,10 @@
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        {!! Form::label('slug') !!}
-                        {!! Form::text('slug',null,['class'=>formControl('slug',$errors),'required']) !!}
-                        <span class="text-info">Use (-) if required (Eg: national-news,hot-news)</span>
-                        @error('slug') <span class="error invalid-feedback">{{ $message }}</span> @enderror
+                        {!! Form::label('order') !!}
+                        {!! Form::number('order',null,['class'=>formControl('order',$errors),'required']) !!}
+                        {{--                        <span class="text-info">Use (-) if required (Eg: national-news,hot-news)</span>--}}
+                        @error('order') <span class="error invalid-feedback">{{ $message }}</span> @enderror
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -67,6 +67,7 @@
                 <tr>
                     <th>S.No</th>
                     <th>Title</th>
+                    <th>Order</th>
                     <th>Parent Category</th>
                     <th>#</th>
                 </tr>
@@ -77,7 +78,8 @@
                     <tr>
                         <td>{{$key + 1}}</td>
                         <td>{{$category->title}}</td>
-                        <td>{{$category->parentCategory()->exists() ? $category->parentCategory->title : ''}}</td>
+                        <td>{{$category->order}}</td>
+                        <td>{{ $category->parentCategory->title}}</td>
                         <td>
                             {!! $button->editButton('admin.categories.edit',$category->id) !!}
                             {!! $button->deleteButton('admin.categories.destroy',$category->id) !!}

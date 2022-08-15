@@ -452,7 +452,8 @@
                                 <h5 class="post_title"><a href="#">Pakistan Foreign Minister visits China to discuss
                                         Afg...</a></h5>
 
-                                <p class="post_source">BreaknLinks - Islamabad</p>
+                                                               <p class="post_source">{{$news->author??''}} {{$news->date_line ? '-' .$news->date_line  :''}}</p>
+
                             </div>
                         </div>
                         <!--ended repeatable items-->
@@ -464,7 +465,8 @@
                                 <h5 class="post_title"><a href="#">Pakistan Foreign Minister visits China to discuss
                                         Afg...</a></h5>
 
-                                <p class="post_source">BreaknLinks - Islamabad</p>
+                                                               <p class="post_source">{{$news->author??''}} {{$news->date_line ? '-' .$news->date_line  :''}}</p>
+
                             </div>
                         </div>
                         <div class="bl-newsPost bl-newsPost--small">
@@ -475,7 +477,8 @@
                                 <h5 class="post_title"><a href="#">Pakistan Foreign Minister visits China to discuss
                                         Afg...</a></h5>
 
-                                <p class="post_source">BreaknLinks - Islamabad</p>
+                                                               <p class="post_source">{{$news->author??''}} {{$news->date_line ? '-' .$news->date_line  :''}}</p>
+
                             </div>
                         </div>
                         <div class="bl-newsPost bl-newsPost--small">
@@ -486,7 +489,8 @@
                                 <h5 class="post_title"><a href="#">Pakistan Foreign Minister visits China to discuss
                                         Afg...</a></h5>
 
-                                <p class="post_source">BreaknLinks - Islamabad</p>
+                                                               <p class="post_source">{{$news->author??''}} {{$news->date_line ? '-' .$news->date_line  :''}}</p>
+
                             </div>
                         </div>
                         <div class="bl-newsPost bl-newsPost--small">
@@ -497,7 +501,8 @@
                                 <h5 class="post_title"><a href="#">Pakistan Foreign Minister visits China to discuss
                                         Afg...</a></h5>
 
-                                <p class="post_source">BreaknLinks - Islamabad</p>
+                                                               <p class="post_source">{{$news->author??''}} {{$news->date_line ? '-' .$news->date_line  :''}}</p>
+
                             </div>
                         </div>
                         <div class="bl-newsPost bl-newsPost--small">
@@ -508,7 +513,8 @@
                                 <h5 class="post_title"><a href="#">Pakistan Foreign Minister visits China to discuss
                                         Afg...</a></h5>
 
-                                <p class="post_source">BreaknLinks - Islamabad</p>
+                                                               <p class="post_source">{{$news->author??''}} {{$news->date_line ? '-' .$news->date_line  :''}}</p>
+
                             </div>
                         </div>
                         <div class="bl-newsPost bl-newsPost--small">
@@ -519,7 +525,8 @@
                                 <h5 class="post_title"><a href="#">Pakistan Foreign Minister visits China to discuss
                                         Afg...</a></h5>
 
-                                <p class="post_source">BreaknLinks - Islamabad</p>
+                                                               <p class="post_source">{{$news->author??''}} {{$news->date_line ? '-' .$news->date_line  :''}}</p>
+
                             </div>
                         </div>
                         <div class="bl-newsPost bl-newsPost--small">
@@ -530,7 +537,8 @@
                                 <h5 class="post_title"><a href="#">Pakistan Foreign Minister visits China to discuss
                                         Afg...</a></h5>
 
-                                <p class="post_source">BreaknLinks - Islamabad</p>
+                                                               <p class="post_source">{{$news->author??''}} {{$news->date_line ? '-' .$news->date_line  :''}}</p>
+
                             </div>
                         </div>
                         <div class="bl-newsPost bl-newsPost--small">
@@ -541,7 +549,8 @@
                                 <h5 class="post_title"><a href="#">Pakistan Foreign Minister visits China to discuss
                                         Afg...</a></h5>
 
-                                <p class="post_source">BreaknLinks - Islamabad</p>
+                                                               <p class="post_source">{{$news->author??''}} {{$news->date_line ? '-' .$news->date_line  :''}}</p>
+
                             </div>
                         </div>
                     </div>

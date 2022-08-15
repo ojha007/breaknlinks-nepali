@@ -16,7 +16,8 @@
                                     Afg...</a>
                             </h5>
                             <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do...</p>
-                            <p class="post_source">BreaknLinks - Islamabad</p>
+{{--                            <p class="post_source">{{$news->author??''}} {{$news->date_line ? '-' .$news->date_line  :''}}</p>--}}
+
                         </div>
                     </div>
                 </div>
